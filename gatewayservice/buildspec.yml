@@ -24,7 +24,7 @@ phases:
     commands:
       - echo Building gatewayservice...
       - cd gatewayservice
-      - mvn clean package -DskipTests
+      - mvn -X clean package -DskipTests
   post_build:
     commands:
       - echo Build completed on `date`
