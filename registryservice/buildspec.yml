@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+    commands:
+      - echo Installing Maven...
+      - yum install -y maven
+  pre_build:
+    commands:
+      - echo Logging in...
+  build:
+    commands:
+      - echo Building registryservice...
+      - mvn clean package -DskipTests
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - mkdir -p build
+      - cp target/*.jar build/
+artifacts:
+  files:
+    - build/**/*
+    - appspec.yml
+    - scripts/**/*
