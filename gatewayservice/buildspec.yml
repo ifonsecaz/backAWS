@@ -13,14 +13,15 @@ phases:
   build:
     commands:
       - echo Building gatewayservice...
+      - cd gatewayservice
       - mvn clean package -DskipTests
   post_build:
     commands:
       - echo Build completed on `date`
       - mkdir -p build
-      - cp target/*.jar build/
+      - cp gatewayservice/target/*.jar build/
 artifacts:
   files:
     - build/**/*
-    - appspec.yml
-    - scripts/**/*
+    - gatewayservice/appspec.yml
+    - gatewayservice/scripts/**/*
