@@ -6,9 +6,17 @@ phases:
       java: corretto17
     commands:
       - echo Installing Maven...
-      - yum install -y maven
-      - echo "Maven executable $(which mvn)"
-      - echo "version $(mvn --version)"
+      - wget https://downloads.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz -P /tmp
+
+      # Extract to /opt
+      - tar -xzf /tmp/apache-maven-3.8.8-bin.tar.gz -C /opt
+
+      # Set environment variables so mvn command works
+      - export M2_HOME=/opt/apache-maven-3.8.8
+      - export PATH=$M2_HOME/bin:$PATH
+
+      # Confirm Maven version
+      - mvn -version
   pre_build:
     commands:
       - echo Logging in...
