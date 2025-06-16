@@ -6,8 +6,8 @@ phases:
       java: corretto17
     commands:
       - echo Installing Maven...
-      - wget https://downloads.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz -P /tmp
-
+      # wget https://downloads.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz -P /tmp
+      - wget https://maven-bucket-ifz.s3.us-east-1.amazonaws.com/apache-maven-3.8.8-bin.tar.gz -P /tmp
       # Extract to /opt
       - tar -xzf /tmp/apache-maven-3.8.8-bin.tar.gz -C /opt
 
