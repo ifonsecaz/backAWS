@@ -28,8 +28,8 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - mkdir -p build
-      - cp gatewayservice/target/*.jar build/
+      - mkdir -p ../build
+      - cp target/*.jar ../build/
 artifacts:
   files:
     - build/**/*
