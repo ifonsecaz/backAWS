@@ -28,7 +28,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - mkdir -p build
+      - mkdir -p ../build
       - cp target/*.jar ../build/
       - cp gatewayservice/appspec.yml build/
       - cp -r gatewayservice/scripts build/
